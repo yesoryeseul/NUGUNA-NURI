@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint --cache \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint --fix --cache \"src/**/*.{ts,tsx,js,jsx}\"",
-    "formatter": "prettier --write --cache \"src/**/*.{ts,tsx,js,jsx}\""
+    "formatter": "prettier --write --cache \"src/**/*.{ts,tsx,js,jsx}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "next": "latest",
@@ -16,6 +18,14 @@
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.5.0-alpha.3",
+    "@storybook/addon-interactions": "^7.5.0-alpha.3",
+    "@storybook/addon-links": "^7.5.0-alpha.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.0-alpha.3",
+    "@storybook/react": "^7.5.0-alpha.3",
+    "@storybook/react-vite": "^7.5.0-alpha.3",
+    "@storybook/testing-library": "^0.2.2",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -28,10 +38,12 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.14",
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.3",
     "postcss": "latest",
     "prettier": "^3.0.3",
+    "storybook": "^7.5.0-alpha.3",
     "tailwindcss": "latest",
     "typescript": "latest"
   }
