@@ -21,9 +21,10 @@ module.exports = {
       env: {
         node: true,
       },
-      files: ['.eslintrc.{js,cjs}'],
+      files: ['.eslintrc.{js,cjs,ts}'],
       parserOptions: {
-        sourceType: 'script',
+        sourceType: 'module',
+        createDefaultProgram: true,
       },
     },
   ],
@@ -31,8 +32,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort', 'unused-imports'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'unused-imports/no-unused-imports-ts': ['error'],
