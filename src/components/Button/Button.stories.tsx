@@ -10,19 +10,19 @@ const meta = {
   },
   argTypes: {
     variant: {
-      options: ['more', 'register', 'cancel'], // variant에 맞게 options 설정
+      options: ['more', 'register', 'cancel'],
       control: { type: 'select' },
     },
     shape: {
-      options: ['square', 'primary', 'full'], // shape에 맞게 options 설정
+      options: ['square', 'primary', 'full'],
       control: { type: 'select' },
     },
     size: {
-      options: ['small', 'medium', 'large'], // size에 맞게 options 설정
+      options: ['small', 'medium', 'large'],
       control: { type: 'select' },
     },
     weight: {
-      options: ['normal', 'medium', 'semibold', 'bold'], // fontweight에 맞게 options 설정
+      options: ['normal', 'medium', 'semibold', 'bold'],
       control: { type: 'select' },
     },
   },

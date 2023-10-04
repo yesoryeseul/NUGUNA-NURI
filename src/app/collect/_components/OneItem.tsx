@@ -1,12 +1,9 @@
 import Image from 'next/image';
-interface Data {
-  MAIN_IMG: string;
-  ORG_NAME: string;
-  TITLE: string;
-}
 
-const OneItem = ({ data }: { data: Data }) => {
-  const { MAIN_IMG, ORG_NAME, TITLE } = data;
+import { CulturalEventRow } from '../page';
+
+const OneItem = ({ item }: { item: CulturalEventRow }) => {
+  const { MAIN_IMG, ORG_NAME, TITLE } = item;
   return (
     <div>
       <Image src={MAIN_IMG} width={400} height={562} alt='test' />
