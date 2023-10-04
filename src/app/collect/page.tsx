@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import CollectAPI from '@/api/collectAPI';
 
 import OneItem from './_components/OneItem';
+import FilterSelect from './_components/Select';
 import SkeletonLoader from './_components/SkeletonLoader';
-import FilterTab from './_components/Tabs';
 
 export interface CulturalEventRow {
   MAIN_IMG: string;
@@ -38,8 +38,7 @@ const Collect = () => {
   return (
     <div className='flex flex-col items-center max-w-7xl m-auto'>
       <h1 className='text-4xl font-bold my-16'>행사 모아보기</h1>
-      <FilterTab />
-
+      <FilterSelect />
       {data ? (
         <div className='grid grid-cols-3 gap-4'>
           {data?.culturalEventInfo?.row?.map((item, idx) => (
