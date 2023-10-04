@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import CollectAPI from '@/api/collectAPI';
 
 import OneItem from './_components/OneItem';
+import SkeletonLoader from './_components/SkeletonLoader';
 import FilterTab from './_components/Tabs';
 
 export interface CulturalEventRow {
@@ -34,19 +35,22 @@ const Collect = () => {
       });
   }, [apiKey]);
 
-  if (!data) return <p>Loading data...</p>;
-
   return (
     <div className='flex flex-col items-center max-w-7xl m-auto'>
       <h1 className='text-4xl font-bold my-16'>행사 모아보기</h1>
       <FilterTab />
-      <div className='grid grid-cols-3 gap-4'>
-        {data?.culturalEventInfo?.row?.map((item, idx) => (
-          <div key={idx} className='p-4'>
-            <OneItem item={item} />
-          </div>
-        ))}
-      </div>
+
+      {data ? (
+        <div className='grid grid-cols-3 gap-4'>
+          {data?.culturalEventInfo?.row?.map((item, idx) => (
+            <div key={idx} className='p-4'>
+              <OneItem item={item} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <SkeletonLoader />
+      )}
     </div>
   );
 };
