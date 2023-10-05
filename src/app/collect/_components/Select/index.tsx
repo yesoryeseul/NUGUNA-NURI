@@ -1,5 +1,4 @@
-'use client';
-import { useState } from 'react';
+import { useAtom } from 'jotai';
 
 import {
   Select,
@@ -8,12 +7,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { selectValueAtom } from '@/types/collect/atom';
 interface FilterSelectProps {
   onValueChange: (value: string) => void;
 }
 
 const FilterSelect: React.FC<FilterSelectProps> = ({ onValueChange }) => {
-  const [selectedValue, setSelectedValue] = useState<string>('');
+  const [selectedValue, setSelectedValue] = useAtom(selectValueAtom);
   const handleSelectChange = (value: string) => {
     setSelectedValue(value); // 선택한 값을 업데이트
     if (onValueChange) {

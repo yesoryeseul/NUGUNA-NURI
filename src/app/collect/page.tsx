@@ -1,7 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { atom, useAtom } from 'jotai';
+import { useEffect } from 'react';
 
 import CollectAPI from '@/api/collectAPI';
+import { selectValueAtom } from '@/types/collect/atom';
 
 import OneItem from './_components/OneItem';
 import FilterSelect from './_components/Select';
@@ -21,10 +23,12 @@ interface CulturalEventInfo {
   };
 }
 
+const dataAtom = atom<CulturalEventInfo | null>(null);
+
 const Collect = () => {
   const apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
-  const [data, setData] = useState<CulturalEventInfo | null>(null);
-  const [selectedValue, setSelectedValue] = useState<string>('');
+  const [data, setData] = useAtom(dataAtom);
+  const [selectedValue, setSelectedValue] = useAtom(selectValueAtom);
 
   useEffect(() => {
     CollectAPI(1, 300)
@@ -35,7 +39,7 @@ const Collect = () => {
       .catch((error) => {
         console.error('에러 발생', error);
       });
-  }, [apiKey, selectedValue]);
+  }, [apiKey, selectedValue, setData]);
 
   return (
     <div className='flex flex-col items-center max-w-7xl m-auto'>
