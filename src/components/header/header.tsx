@@ -13,7 +13,7 @@ export function Header({ className, ...props }: React.HTMLAttributes<HTMLElement
           누구나누리
         </Link>
         <Link
-          href='/'
+          href='/collect'
           className='text-base font-normal font-semibold text-muted-foreground transition-colors hover:text-primary'
         >
           행사 모아보기

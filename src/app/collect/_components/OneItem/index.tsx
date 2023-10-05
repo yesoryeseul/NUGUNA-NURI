@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { CulturalEventRow } from '../page';
+import { CulturalEventRow } from '../../page';
 
 const OneItem = ({ item }: { item: CulturalEventRow }) => {
   const { MAIN_IMG, ORG_NAME, TITLE } = item;

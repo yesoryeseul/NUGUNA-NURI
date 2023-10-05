@@ -1,4 +1,4 @@
-import RecmmendSlide from "./main/_component/Recommend";
+import RecmmendSlide from './main/_component/Recommend';
 
 export default function Home() {
   return (
