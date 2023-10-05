@@ -2,7 +2,7 @@ import xml2js from 'xml2js';
 
 import { ApiType, CulturalEventInfo } from './types';
 const fetchApi = async () => {
-  const url = process.env.API_URL;
+  const url = process.env.API_URL as string;
   const res = await fetch(url, { cache: 'no-store' });
   const data = await res.text();
 
