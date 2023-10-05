@@ -27,7 +27,7 @@ const Collect = () => {
   const [selectedValue, setSelectedValue] = useState<string>('');
 
   useEffect(() => {
-    CollectAPI(1, 50)
+    CollectAPI(1, 300)
       .then((dataString) => {
         const parsedData = JSON.parse(dataString);
         setData(parsedData);
