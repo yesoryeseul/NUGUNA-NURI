@@ -2,8 +2,7 @@ import xml2js from 'xml2js';
 
 import { ApiType, CulturalEventInfo } from './types';
 const fetchApi = async () => {
-  const url =
-    'http://openapi.seoul.go.kr:8088/624e504e6c70687335324976584446/xml/culturalEventInfo/1/50/';
+  const url = process.env.API_URL;
   const res = await fetch(url, { cache: 'no-store' });
   const data = await res.text();
 
@@ -16,7 +15,7 @@ const fetchApi = async () => {
   });
   // console.log(apis);
   const arr: ApiType = apis.culturalEventInfo.row;
-  
+
   return arr;
 };
 export default fetchApi;
