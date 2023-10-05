@@ -13,15 +13,20 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "dotenv": "^16.3.1",
     "lucide-react": "^0.282.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.5",
@@ -35,6 +40,8 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-slick": "^0.23.10",
+    "@types/xml2js": "^0.4.12",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "autoprefixer": "latest",
@@ -51,6 +58,6 @@
     "prettier": "^3.0.3",
     "storybook": "^7.4.5",
     "tailwindcss": "latest",
-    "typescript": "latest"
+    "typescript": "^5.2.2"
   }
 }
