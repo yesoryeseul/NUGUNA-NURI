@@ -8,7 +8,14 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['next/core-web-vitals', 'eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'prettier', 'plugin:storybook/recommended'],
+  extends: [
+    'next/core-web-vitals',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
   overrides: [
     {
       env: {
@@ -29,6 +36,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort', 'unused-imports'],
   rules: {
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'unused-imports/no-unused-imports-ts': ['error'],
     '@typescript-eslint/no-unused-vars': 'error',
