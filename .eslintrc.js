@@ -39,7 +39,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'unused-imports/no-unused-imports-ts': ['error'],
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
   },
