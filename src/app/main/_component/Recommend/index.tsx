@@ -7,11 +7,11 @@ export default async function RecmmendSlide() {
   return (
     <>
       <div className='flex'>
-        {/* {recommendImg.map((v) => (
+        {recommendImg.map((v) => (
           <div className='w-1/3'>
             <img src={v.MAIN_IMG} className='w-72' alt='My Image'></img>
           </div>
-        ))} */}
+        ))}
       </div>
     </>
   );
