@@ -50,7 +50,7 @@ const Collect = () => {
             ) // 선택한 값이 없거나 값이 전체이거나 CODENAME과 일치하는 경우에만 필터링
             .map((item, idx) => (
               <div key={idx} className='p-4'>
-                <OneItem item={item} />
+                <OneItem item={item} idx={idx} />
               </div>
             ))}
         </div>

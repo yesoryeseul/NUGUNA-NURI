@@ -1,19 +1,23 @@
 'use client';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-// useState 추가
 import { CulturalEventRow } from '../../page';
 
-const OneItem = ({ item }: { item: CulturalEventRow }) => {
+const OneItem = ({ item, idx }: { item: CulturalEventRow; idx: number }) => {
   const { MAIN_IMG, ORG_NAME, TITLE } = item;
-
+  const router = useRouter();
+  const handleItemClick = () => {
+    console.log(idx);
+    router.push(`/collect/${idx}`);
+  };
   return (
-    <div>
+    <div onClick={handleItemClick} style={{ cursor: 'pointer' }}>
       <Image
         src={MAIN_IMG}
         width={400}
         height={562}
-        alt='test'
+        alt={TITLE}
         placeholder='blur'
         blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=='
       />
