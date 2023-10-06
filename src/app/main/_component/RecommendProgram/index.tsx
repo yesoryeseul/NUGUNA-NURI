@@ -14,7 +14,7 @@ import SwiperCore from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import fetchApi from '@/api/api';
+import mainApi from '@/api/mainApi';
 import { ApiType } from '@/api/types';
 
 export default function RecmmendSlide() {
@@ -27,7 +27,7 @@ export default function RecmmendSlide() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const api: ApiType[] = await fetchApi();
+      const api: ApiType[] = await mainApi(1, 50);
       const filterData = api.filter((v: ApiType) => v.IS_FREE[0] == '무료');
       setReccomendImg(filterData);
     };

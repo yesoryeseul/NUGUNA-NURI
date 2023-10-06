@@ -7,6 +7,7 @@ import Button from '@/components/Button/Button';
 const CollectDetail = async ({ params }: { params: { idx: number } }) => {
   const fetchData = await CollectAPI(1, 300);
   const parseData = JSON.parse(fetchData);
+  
   const data = parseData?.culturalEventInfo?.row?.[params.idx];
 
   const { MAIN_IMG, ORG_NAME, TITLE, DATE, PLACE, USE_TRGT, USE_FEE, RGSTDATE, PROGRAM, ORG_LINK } =
