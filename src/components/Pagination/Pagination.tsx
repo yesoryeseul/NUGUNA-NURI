@@ -11,6 +11,7 @@ interface PageProps {
   total_count: number;
   list: number;
   itemPerPage: number;
+  onPageChange?: (newPage: number) => void;
   bgColor?: 'gray' | 'blue' | 'pink';
   shape?: 'square' | 'primary' | 'full';
   arrow?: 'gray' | 'blue' | 'pink';
@@ -18,13 +19,14 @@ interface PageProps {
 }
 
 const currentPage = 1;
-const pageAtom = atom<number | 1>(currentPage);
+const pageAtom = atom(currentPage);
 
 const Pagination: React.FC<PageProps> = (props) => {
   const {
     total_count,
     list,
     itemPerPage,
+    onPageChange,
     bgColor = 'gray',
     shape = 'square',
     arrow = 'gray',
@@ -41,6 +43,15 @@ const Pagination: React.FC<PageProps> = (props) => {
 
   // 페이지 그룹 마지막
   const lastPageGroup = Math.min(currentPageGroup * itemPerPage, totalPages);
+
+  // 페이지 변경 함수
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+    // onPageChange 함수가 전달되었다면 호출
+    if (onPageChange) {
+      onPageChange(newPage);
+    }
+  };
 
   const bgColorCSS = {
     gray: 'bg-gray-300 text-white',
@@ -71,11 +82,11 @@ const Pagination: React.FC<PageProps> = (props) => {
   return (
     <div>
       <ul className='flex'>
-        <button onClick={() => setPage(1)} className={`mr-3 ${arrowVariant}`}>
+        <button onClick={() => handlePageChange(1)} className={`mr-3 ${arrowVariant}`}>
           <FontAwesomeIcon icon={faAnglesLeft} />
         </button>
         <button
-          onClick={() => setPage(page - 1)}
+          onClick={() => handlePageChange(page - 1)}
           disabled={page === 1}
           className={`mr-1 ${arrowVariant}`}
         >
@@ -92,7 +103,7 @@ const Pagination: React.FC<PageProps> = (props) => {
                     className={`px-2 ${shapeVariant} ${colorCSS} ${
                       page === pageNum ? bgActive : `bg-transparent ${noneActive}`
                     }`}
-                    onClick={() => setPage(pageNum)}
+                    onClick={() => handlePageChange(pageNum)}
                   >
                     {pageNum}
                   </button>
@@ -102,13 +113,13 @@ const Pagination: React.FC<PageProps> = (props) => {
             return null; // 페이지 그룹 밖의 페이지는 null을 반환하여 렌더링하지 않음
           })}
         <button
-          onClick={() => setPage(page + 1)}
+          onClick={() => handlePageChange(page + 1)}
           disabled={page === totalPages}
           className={`ml-1 ${arrowVariant}`}
         >
           <FontAwesomeIcon icon={faAngleRight} />
         </button>
-        <button onClick={() => setPage(totalPages)} className={`ml-3 ${arrowVariant}`}>
+        <button onClick={() => handlePageChange(totalPages)} className={`ml-3 ${arrowVariant}`}>
           <FontAwesomeIcon icon={faAnglesRight} />
         </button>
       </ul>
