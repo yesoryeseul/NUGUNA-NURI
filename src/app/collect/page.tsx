@@ -1,7 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { atom, useAtom } from 'jotai';
+import { useEffect } from 'react';
 
 import CollectAPI from '@/api/collectAPI';
+import { selectValueAtom } from '@/types/collect/atom';
 
 import OneItem from './_components/OneItem';
 import FilterSelect from './_components/Select';
@@ -21,13 +23,15 @@ interface CulturalEventInfo {
   };
 }
 
+const dataAtom = atom<CulturalEventInfo | null>(null);
+
 const Collect = () => {
   const apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
-  const [data, setData] = useState<CulturalEventInfo | null>(null);
-  const [selectedValue, setSelectedValue] = useState<string>('');
+  const [data, setData] = useAtom(dataAtom);
+  const [selectedValue, setSelectedValue] = useAtom(selectValueAtom);
 
   useEffect(() => {
-    CollectAPI(1, 50)
+    CollectAPI(1, 300)
       .then((dataString) => {
         const parsedData = JSON.parse(dataString);
         setData(parsedData);
@@ -35,7 +39,7 @@ const Collect = () => {
       .catch((error) => {
         console.error('에러 발생', error);
       });
-  }, [apiKey, selectedValue]);
+  }, [apiKey, selectedValue, setData]);
 
   return (
     <div className='flex flex-col items-center max-w-7xl m-auto'>
@@ -50,7 +54,7 @@ const Collect = () => {
             ) // 선택한 값이 없거나 값이 전체이거나 CODENAME과 일치하는 경우에만 필터링
             .map((item, idx) => (
               <div key={idx} className='p-4'>
-                <OneItem item={item} />
+                <OneItem item={item} idx={idx} />
               </div>
             ))}
         </div>
