@@ -1,11 +1,17 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import CollectAPI from '@/api/collectAPI';
 import Button from '@/components/Button/Button';
 
-const CollectDetail = async ({ params }: { params: { idx: number } }) => {
-  const fetchData = await CollectAPI(1, 300);
+const CollectDetail = async ({ params }: { params: { idx: number; selectedValue: string } }) => {
+  // 전체 카테고리에 대한 예외 처리
+  let codename = '';
+  if (params.selectedValue && params.selectedValue.length > 0) {
+    codename = params.selectedValue[0].replace(/\//g, '_');
+  }
+
+  const fetchData = await CollectAPI(1, 300, codename);
   const parseData = JSON.parse(fetchData);
   
   const data = parseData?.culturalEventInfo?.row?.[params.idx];
