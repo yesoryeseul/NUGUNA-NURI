@@ -42,7 +42,6 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const buttonClasses = [
-    'font-bold py-2 px-4',
     bgColorCSS[variant] || '',
     shapeCSS[shape] || '',
     sizeCSS[size] || '',
