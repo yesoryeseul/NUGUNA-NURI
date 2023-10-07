@@ -20,7 +20,7 @@ export function Header({ className, ...props }: React.HTMLAttributes<HTMLElement
             행사 모아보기
           </Link>
           <Link
-            href='/'
+            href='/review'
             className='text-base font-normal font-semibold text-muted-foreground transition-colors hover:text-primary'
           >
             후기

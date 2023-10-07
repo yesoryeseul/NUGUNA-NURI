@@ -15,7 +15,7 @@ import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import mainApi from '@/api/mainApi';
-import { ApiType } from '@/api/types';
+import { ApiType } from '@/types/main/types';
 
 export default function RecmmendSlide() {
   // swiper 사용
@@ -24,7 +24,6 @@ export default function RecmmendSlide() {
 
   // 추천 프로그램 이미지
   const [recommendImg, setReccomendImg] = useState<ApiType[]>([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const api: ApiType[] = await mainApi(1, 50);
@@ -36,7 +35,7 @@ export default function RecmmendSlide() {
 
   return (
     <>
-      <div className='flex m-0 w-auto'>
+      <div className='flex m-0 w-auto px-2.5	'>
         <div className=' m-0 w-1/4 ml-2'>
           <div className='text-xs my-8'>Recommend Program</div>
           <div className='my-4 text-2xl font-semibold'>추천 프로그램</div>
