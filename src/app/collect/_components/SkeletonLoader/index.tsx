@@ -1,9 +1,10 @@
 import { Skeleton } from '@/components/ui/skeleton';
 
 const SkeletonLoader = () => {
+  const array = Array.from({ length: 12 }, (_, index) => index + 1);
   return (
     <div className='w-full grid grid-cols-3 gap-4'>
-      {[1, 2, 3].map((idx) => (
+      {array.map((idx) => (
         <div key={idx} className='p-4'>
           <Skeleton className='w-full h-[562px] rounded-none' />
           <div className='flex flex-col items-center my-4'>

@@ -1,6 +1,6 @@
 'use client';
-import { atom, useAtom } from 'jotai';
-import { useEffect, useState } from 'react';
+import { atom, useAtom, useAtomValue } from 'jotai';
+import { useEffect } from 'react';
 
 import CollectAPI from '@/api/collectAPI';
 import Pagination from '@/components/Pagination/Pagination';
@@ -17,7 +17,7 @@ export interface CulturalEventRow {
   CODENAME: string;
 }
 
-interface CulturalEventInfo {
+export interface CulturalEventInfo {
   list_total_count: number;
   culturalEventInfo: {
     row: CulturalEventRow[];
@@ -25,39 +25,46 @@ interface CulturalEventInfo {
 }
 
 const dataAtom = atom<CulturalEventInfo | null>(null);
+const currentPageAtom = atom(1);
+const totalCountAtom = atom(0);
+const itemsPerPageAtom = atom(12);
+
+// 파생 atom, currentPage와 itemsPerPage 상태를 감지하여
+// 시작, 끝 인덱스를 계산 > 별도의 상태 업데이트 로직 없어도 된다
+const startIndexAtom = atom((get) => {
+  const currentPage = get(currentPageAtom);
+  const itemsPerPage = get(itemsPerPageAtom);
+  return currentPage > 1 ? (currentPage - 1) * itemsPerPage : 0;
+});
+
+const endIndexAtom = atom((get) => {
+  const startIndex = get(startIndexAtom);
+  const itemsPerPage = get(itemsPerPageAtom);
+  return startIndex + itemsPerPage - 1;
+});
+
 const Collect = () => {
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
   const [data, setData] = useAtom(dataAtom);
   const [selectedValue, setSelectedValue] = useAtom(selectValueAtom);
-  const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태 추가
-  const [totalPage, setTotalPage] = useState(0);
-  const itemsPerPage = 12; // 한 페이지에 표시할 아이템 수
+  const [currentPage, setCurrentPage] = useAtom(currentPageAtom); // 현재 페이지 상태 추가
+  const [totalCount, setTotalCount] = useAtom(totalCountAtom); // 총 갯수
+  const itemsPerPage = useAtomValue(itemsPerPageAtom); // 한 페이지에 표시할 아이템 수
+
+  const startIndex = useAtomValue(startIndexAtom);
+  const endIndex = useAtomValue(endIndexAtom);
 
   useEffect(() => {
-    let startIndex: number;
-    let endIndex: number;
-
-    if (currentPage > 1) {
-      startIndex = (currentPage - 1) * itemsPerPage;
-      endIndex = startIndex + itemsPerPage - 1;
-    } else {
-      startIndex = 0; // 시작 페이지에서는 0으로 시작
-      endIndex = itemsPerPage - 1;
-    }
-
-    // CollectAPI 함수 호출 시 데이터 범위를 인자로 전달
-    CollectAPI(0, 300, selectedValue) // selectedValue를 추가하여 필터링 조건을 전달
+    CollectAPI(1, 300, selectedValue)
       .then((dataString) => {
         const parsedData = JSON.parse(dataString);
-        const slicedData = parsedData.culturalEventInfo.row.slice(startIndex, endIndex + 1);
-        setData({ ...parsedData, culturalEventInfo: { row: slicedData } });
-        console.log('test', parsedData);
-        setTotalPage(parsedData?.culturalEventInfo?.row?.length);
+        setData(parsedData); // 전체 데이터 저장
+        console.log('parse', parsedData);
+        setTotalCount(Math.ceil(parsedData?.culturalEventInfo?.row?.length)); // 불러올 총 데이터 갯수
       })
       .catch((error) => {
         console.error('에러 발생', error);
       });
-  }, [apiKey, selectedValue, setData, currentPage, itemsPerPage]);
+  }, [selectedValue, setData, currentPage, itemsPerPage, setTotalCount, startIndex]);
 
   // Pagination 페이지 변경 시 해당 페이지에 맞는 데이터 불러오기
   const handlePageChange = (newPage: number) => {
@@ -70,9 +77,9 @@ const Collect = () => {
       <FilterSelect onValueChange={setSelectedValue} />
       {data ? (
         <div className='grid grid-cols-3 gap-4'>
-          {data?.culturalEventInfo?.row?.map((item, idx) => (
+          {data?.culturalEventInfo?.row.slice(startIndex, endIndex + 1).map((item, idx) => (
             <div key={idx} className='p-4'>
-              <OneItem item={item} idx={idx} />
+              <OneItem item={item} idx={startIndex + idx} /> {/* 실제 index 값으로 변경 */}
             </div>
           ))}
         </div>
@@ -81,7 +88,7 @@ const Collect = () => {
       )}
       <div className='my-12'>
         <Pagination
-          total_count={totalPage}
+          total_count={totalCount}
           list={itemsPerPage}
           itemPerPage={10}
           onPageChange={handlePageChange}
