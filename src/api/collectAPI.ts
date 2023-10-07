@@ -9,7 +9,7 @@ const CollectAPI = async (
     let apiUrl = `${baseURL}/${apiKey}/json/culturalEventInfo/${startIndex}/${endIndex}/`;
 
     if (codename) {
-      apiUrl += `${codename}`;
+      apiUrl += `${codename.replace(/_/g, '/')}`;
     }
     const res = await fetch(apiUrl, {
       cache: 'no-store',

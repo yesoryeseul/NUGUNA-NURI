@@ -79,7 +79,7 @@ const Collect = () => {
         <div className='grid grid-cols-3 gap-4'>
           {data?.culturalEventInfo?.row.slice(startIndex, endIndex + 1).map((item, idx) => (
             <div key={idx} className='p-4'>
-              <OneItem item={item} idx={startIndex + idx} /> {/* 실제 index 값으로 변경 */}
+              <OneItem item={item} idx={startIndex + idx} selectedValue={selectedValue} />{' '}
             </div>
           ))}
         </div>

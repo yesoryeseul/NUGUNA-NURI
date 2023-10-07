@@ -3,9 +3,17 @@ import Link from 'next/link';
 
 import { CulturalEventRow } from '../../page';
 
-const OneItem = ({ item, idx }: { item: CulturalEventRow; idx: number }) => {
+const OneItem = ({
+  item,
+  idx,
+  selectedValue,
+}: {
+  item: CulturalEventRow;
+  idx: number;
+  selectedValue: string;
+}) => {
   const { MAIN_IMG, ORG_NAME, TITLE } = item;
-  const url = `/collect/${idx}`;
+  const url = `/collect/${idx}/${selectedValue}`;
   return (
     <Link href={url}>
       <Image
