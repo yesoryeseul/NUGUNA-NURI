@@ -1,8 +1,16 @@
-const CollectAPI = async (startIndex: number, endIndex: number): Promise<string> => {
+const CollectAPI = async (
+  startIndex: number,
+  endIndex: number,
+  codename?: string,
+): Promise<string> => {
   try {
     const baseURL = process.env.NEXT_PUBLIC_URL;
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-    const apiUrl = `${baseURL}/${apiKey}/json/culturalEventInfo/${startIndex}/${endIndex}/`;
+    let apiUrl = `${baseURL}/${apiKey}/json/culturalEventInfo/${startIndex}/${endIndex}/`;
+
+    if (codename) {
+      apiUrl += `${codename.replace(/_/g, '/')}`;
+    }
     const res = await fetch(apiUrl, {
       cache: 'no-store',
     });
