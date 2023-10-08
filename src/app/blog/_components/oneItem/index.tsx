@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-import { Review } from '@/types/review/types';
+import { BlogTypes } from '@/types/blog/types';
 
 // 단일 prop이 아니기 때문에 {post} 객체 형식으로 보내주기.
-const OneItem = ({ post }: { post: Review }) => {
+const OneItem = ({ post }: { post: BlogTypes }) => {
   return (
     <div className='flex border border-slate-300 my-9 p-5 cursor-pointer	'>
       <Image src={post.img} alt={post.id} width={200} height={700} priority />

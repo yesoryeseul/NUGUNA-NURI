@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
-import { getSortedPostsData } from '@/api/reviewAPI';
+import { getSortedPostsData } from '@/api/blogApi';
 import Button from '@/components/Button/Button';
 
 import OneItem from './oneItem';
 
-const MainReview = () => {
+const MainBlog = () => {
   const posts = getSortedPostsData();
-  const url = `/review`;
+  const url = `/blog`;
   return (
     <>
       <div className='mt-28 flex flex-col max-w-7xl m-auto mb-32 '>
@@ -33,4 +33,4 @@ const MainReview = () => {
   );
 };
 
-export default MainReview;
+export default MainBlog;

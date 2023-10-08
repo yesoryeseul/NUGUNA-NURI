@@ -1,9 +1,16 @@
-export interface Review {
-  id: string;
-  title: string;
-  date: string;
+export interface ReviewType {
+  id: number;
+  createDate: string;
+  userId: string;
   content: string;
-  img: string;
-  view : number;
-  like : number;
+  myReview: boolean;
+  comments: ReviewCommentType[];
+}
+
+export interface ReviewCommentType {
+  id: number;
+  createDate: string;
+  reviewerId: string;
+  content: string;
+  myComment: boolean;
 }

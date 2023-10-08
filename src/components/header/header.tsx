@@ -20,22 +20,16 @@ export function Header({ className, ...props }: React.HTMLAttributes<HTMLElement
             행사 모아보기
           </Link>
           <Link
+            href='/blog'
+            className='text-base font-normal font-semibold text-muted-foreground transition-colors hover:text-primary'
+          >
+            블로그
+          </Link>
+          <Link
             href='/review'
             className='text-base font-normal font-semibold text-muted-foreground transition-colors hover:text-primary'
           >
             후기
-          </Link>
-          <Link
-            href='/examples/dashboard'
-            className='text-base font-normal font-semibold text-muted-foreground transition-colors hover:text-primary'
-          >
-            문의
-          </Link>
-          <Link
-            href='/examples/dashboard'
-            className='text-base font-normal font-semibold text-muted-foreground transition-colors hover:text-primary'
-          >
-            소식
           </Link>
         </nav>
       </div>

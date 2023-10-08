@@ -73,7 +73,7 @@ const Collect = () => {
 
   return (
     <div className='flex flex-col items-center max-w-7xl m-auto'>
-      <h1 className='text-4xl font-bold my-16'>행사 모아보기</h1>
+      <h1 className='text-2xl font-bold my-16'>행사 모아보기</h1>
       <FilterSelect onValueChange={setSelectedValue} />
       {data ? (
         <div className='grid grid-cols-3 gap-4'>

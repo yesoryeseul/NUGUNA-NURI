@@ -10,12 +10,14 @@
     "lint:fix": "eslint --fix --cache \"src/**/*.{ts,tsx,js,jsx}\"",
     "formatter": "prettier --write --cache \"src/**/*.{ts,tsx,js,jsx}\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "json:server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "dotenv": "^16.3.1",
@@ -60,6 +62,7 @@
     "eslint-plugin-storybook": "^0.6.14",
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.3",
+    "json-server": "^0.17.4",
     "postcss": "latest",
     "prettier": "^3.0.3",
     "storybook": "^7.4.5",
