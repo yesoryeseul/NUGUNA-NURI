@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ['culture.seoul.go.kr', 'www.sejongpac.or.kr'], // 허용할 도메인 목록을 추가
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
