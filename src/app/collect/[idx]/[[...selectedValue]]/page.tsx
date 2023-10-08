@@ -13,7 +13,7 @@ const CollectDetail = async ({ params }: { params: { idx: number; selectedValue:
 
   const fetchData = await CollectAPI(1, 300, codename);
   const parseData = JSON.parse(fetchData);
-  
+
   const data = parseData?.culturalEventInfo?.row?.[params.idx];
 
   const { MAIN_IMG, ORG_NAME, TITLE, DATE, PLACE, USE_TRGT, USE_FEE, RGSTDATE, PROGRAM, ORG_LINK } =
