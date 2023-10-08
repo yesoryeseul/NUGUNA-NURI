@@ -2,8 +2,8 @@ import xml2js from 'xml2js';
 
 import { ApiRes, ApiType } from '../types/main/types';
 const mainApi = async (startIndex: number, endIndex: number): Promise<ApiType[]> => {
-  const apiKey = process.env.MAIN_API_KEY;
-  const url = `http://openapi.seoul.go.kr:8088/624e504e6c70687335324976584446/xml/culturalEventInfo/${startIndex}/${endIndex}/`;
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  const url = `http://openapi.seoul.go.kr:8088/${apiKey}/xml/culturalEventInfo/${startIndex}/${endIndex}/`;
   const res = await fetch(url, { cache: 'no-store' });
   const data = await res.text();
 

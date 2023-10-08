@@ -12,4 +12,5 @@ export interface ReviewCommentType {
   createDate: string;
   reviewerId: string;
   content: string;
+  myComment: boolean;
 }

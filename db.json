@@ -11,13 +11,15 @@
           "id": 1,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei",
-          "content": "재밌었나요?!!"
+          "content": "재밌었나요?!!",
+          "myComment": false
         },
         {
           "id": 2,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei_123",
-          "content": "ㅇㅇ"
+          "content": "ㅇㅇ",
+          "myComment": false
         }
       ]
     },
@@ -27,20 +29,7 @@
       "userId": "heepy",
       "content": "세종 문화예술 회관에서 하는 인생은 축제 재밌습니다. 추천해요",
       "myReview": false,
-      "comments": [
-        {
-          "id": 1,
-          "createDate": "2023-10-07T00:00:00",
-          "reviewerId": "kei",
-          "content": "재밌었나요?!!"
-        },
-        {
-          "id": 2,
-          "createDate": "2023-10-07T00:00:00",
-          "reviewerId": "kei_123",
-          "content": "ㅇㅇ"
-        }
-      ]
+      "comments": []
     },
     {
       "id": 3,
@@ -53,13 +42,15 @@
           "id": 1,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei",
-          "content": "재밌었나요?!!"
+          "content": "재밌었나요?!!",
+          "myComment": false
         },
         {
           "id": 2,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei_123",
-          "content": "ㅇㅇ"
+          "content": "ㅇㅇ",
+          "myComment": false
         }
       ]
     },
@@ -74,13 +65,15 @@
           "id": 1,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei",
-          "content": "재밌었나요?!!"
+          "content": "재밌었나요?!!",
+          "myComment": false
         },
         {
           "id": 2,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei_123",
-          "content": "ㅇㅇ"
+          "content": "ㅇㅇ",
+          "myComment": false
         }
       ]
     },
@@ -95,13 +88,15 @@
           "id": 1,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei",
-          "content": "재밌었나요?!!"
+          "content": "재밌었나요?!!",
+          "myComment": false
         },
         {
           "id": 2,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei_123",
-          "content": "ㅇㅇ"
+          "content": "ㅇㅇ",
+          "myComment": false
         }
       ]
     }

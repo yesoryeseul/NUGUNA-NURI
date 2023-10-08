@@ -21,7 +21,7 @@ const EventFeed = async () => {
             </Link>
           </div>
         </div>
-        <div className='flex justify-center items-center justify-between'>
+        <div className='flex justify-center items-center'>
           {fetchData.map((v: ApiType) => (
             <>
               <div className='w-full justify-between ml-4 px-3'>
