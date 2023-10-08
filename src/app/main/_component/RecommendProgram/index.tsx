@@ -14,8 +14,8 @@ import SwiperCore from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import fetchApi from '@/api/api';
-import { ApiType } from '@/api/types';
+import mainApi from '@/api/mainApi';
+import { ApiType } from '@/types/main/types';
 
 export default function RecmmendSlide() {
   // swiper 사용
@@ -24,10 +24,9 @@ export default function RecmmendSlide() {
 
   // 추천 프로그램 이미지
   const [recommendImg, setReccomendImg] = useState<ApiType[]>([]);
-
   useEffect(() => {
     const fetchData = async () => {
-      const api: ApiType[] = await fetchApi();
+      const api: ApiType[] = await mainApi(1, 50);
       const filterData = api.filter((v: ApiType) => v.IS_FREE[0] == '무료');
       setReccomendImg(filterData);
     };
@@ -36,7 +35,7 @@ export default function RecmmendSlide() {
 
   return (
     <>
-      <div className='flex m-0 w-auto'>
+      <div className='flex m-0 w-auto px-2.5	'>
         <div className=' m-0 w-1/4 ml-2'>
           <div className='text-xs my-8'>Recommend Program</div>
           <div className='my-4 text-2xl font-semibold'>추천 프로그램</div>
