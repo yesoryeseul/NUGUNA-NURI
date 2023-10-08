@@ -1,7 +1,7 @@
+import MainBlog from './main/_component/Blog';
 import EventFeed from './main/_component/EventFeed';
 import MainBanner from './main/_component/MainbannerSlide';
 import RecmmendSlide from './main/_component/RecommendProgram';
-import MainReview from './main/_component/Review';
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       <RecmmendSlide />
       <EventFeed />
-      <MainReview />
+      <MainBlog />
     </div>
   );
 }
