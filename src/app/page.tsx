@@ -12,7 +12,7 @@ export default function Home() {
           &quot;누구나 누리&quot;
         </h2>
         <div className='mt-1.5 text-gray-500'>
-        누구나 누릴 수 있는 서울 문화행사 정보 공간, 누구나누리.
+          누구나 누릴 수 있는 서울 문화행사 정보 공간, 누구나누리.
         </div>
       </div>
       <RecmmendSlide />
