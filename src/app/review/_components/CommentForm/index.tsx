@@ -18,6 +18,7 @@ const CommentForm = () => {
 
   const { data: session } = useSession();
   const isSession = session && session.user;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='grid w-full gap-2 my-7'>
       <Textarea
