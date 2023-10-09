@@ -11,9 +11,7 @@ const CollectAPI = async (
     if (codename) {
       apiUrl += `${codename.replace(/_/g, '/')}`;
     }
-    const res = await fetch(apiUrl, {
-      cache: 'no-store',
-    });
+    const res = await fetch(apiUrl, { next: { revalidate: 0 }});
 
     if (!res.ok) {
       throw new Error(`Failed to fetch data. Status: ${res.status}`);

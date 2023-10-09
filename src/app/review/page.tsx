@@ -1,4 +1,4 @@
-import ReviewApi from '@/api/reviewAPI';
+import { ReviewApi } from '@/api/reviewAPI';
 import { ReviewType } from '@/types/review/types';
 
 import CommentForm from './_components/CommentForm';
@@ -13,7 +13,7 @@ const Review = async () => {
       <CommentForm />
       {data?.map((item) => (
         <div className='w-full' key={item.id}>
-          <OneReivew item={item} />
+          <OneReivew item={item} key={item.id} />
         </div>
       ))}
     </div>

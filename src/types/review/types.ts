@@ -3,7 +3,6 @@ export interface ReviewType {
   createDate: string;
   userId: string;
   content: string;
-  myReview: boolean;
   comments: ReviewCommentType[];
 }
 
@@ -12,5 +11,4 @@ export interface ReviewCommentType {
   createDate: string;
   reviewerId: string;
   content: string;
-  myComment: boolean;
 }

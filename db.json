@@ -1,34 +1,10 @@
 {
   "reviews": [
     {
-      "id": 1,
-      "createDate": "2023-10-07T00:00:00",
-      "userId": "히수",
-      "content": "세종 문화예술 회관에서 하는 인생은 축제 재밌습니다. 추천해요",
-      "myReview": false,
-      "comments": [
-        {
-          "id": 1,
-          "createDate": "2023-10-07T00:00:00",
-          "reviewerId": "히수",
-          "content": "재밌었나요?!!",
-          "myComment": false
-        },
-        {
-          "id": 2,
-          "createDate": "2023-10-07T00:00:00",
-          "reviewerId": "kei_123",
-          "content": "ㅇㅇ",
-          "myComment": false
-        }
-      ]
-    },
-    {
       "id": 2,
       "createDate": "2023-10-07T00:00:00",
       "userId": "heepy",
       "content": "세종 문화예술 회관에서 하는 인생은 축제 재밌습니다. 추천해요",
-      "myReview": false,
       "comments": []
     },
     {
@@ -36,21 +12,18 @@
       "createDate": "2023-10-07T00:00:00",
       "userId": "heepy",
       "content": "세종 문화예술 회관에서 하는 인생은 축제 재밌습니다. 추천해요",
-      "myReview": false,
       "comments": [
         {
           "id": 1,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei",
-          "content": "재밌었나요?!!",
-          "myComment": false
+          "content": "재밌었나요?!!"
         },
         {
           "id": 2,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei_123",
-          "content": "ㅇㅇ",
-          "myComment": false
+          "content": "ㅇㅇ"
         }
       ]
     },
@@ -59,21 +32,18 @@
       "createDate": "2023-10-07T00:00:00",
       "userId": "heepy",
       "content": "세종 문화예술 회관에서 하는 인생은 축제 재밌습니다. 추천해요",
-      "myReview": false,
       "comments": [
         {
           "id": 1,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei",
-          "content": "재밌었나요?!!",
-          "myComment": false
+          "content": "재밌었나요?!!"
         },
         {
           "id": 2,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei_123",
-          "content": "ㅇㅇ",
-          "myComment": false
+          "content": "ㅇㅇ"
         }
       ]
     },
@@ -82,23 +52,55 @@
       "createDate": "2023-10-07T00:00:00",
       "userId": "heepy",
       "content": "세종 문화예술 회관에서 하는 인생은 축제 재밌습니다. 추천해요",
-      "myReview": false,
       "comments": [
         {
           "id": 1,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei",
-          "content": "재밌었나요?!!",
-          "myComment": false
+          "content": "재밌었나요?!!"
         },
         {
           "id": 2,
           "createDate": "2023-10-07T00:00:00",
           "reviewerId": "kei_123",
-          "content": "ㅇㅇ",
-          "myComment": false
+          "content": "ㅇㅇ"
         }
       ]
+    },
+    {
+      "id": 4411,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "아아아아ㅏ나나",
+      "comments": []
+    },
+    {
+      "id": 40043,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "아아아아ㅏ아아ㅏ",
+      "comments": []
+    },
+    {
+      "id": 25510,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "아아아아ㅏ아아ㅏ",
+      "comments": []
+    },
+    {
+      "id": 49401,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "아아아아ㅏ아아ㅏ",
+      "comments": []
+    },
+    {
+      "id": 98082,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "뽀삐이이이아ㅏ",
+      "comments": []
     }
   ]
 }
