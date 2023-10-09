@@ -1,4 +1,5 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
@@ -14,6 +15,10 @@ const CommentForm = () => {
     handleSubmit,
   } = useForm<CommentTextArea>();
   const onSubmit: SubmitHandler<CommentTextArea> = (data) => console.log(data);
+
+  const { data: session } = useSession();
+  const isSession = session && session.user;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='grid w-full gap-2 my-7'>
       <Textarea

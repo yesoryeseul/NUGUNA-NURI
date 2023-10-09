@@ -6,6 +6,7 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   weight?: 'normal' | 'medium' | 'semibold' | 'bold';
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
