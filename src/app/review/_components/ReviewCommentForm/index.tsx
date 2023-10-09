@@ -2,14 +2,14 @@
 import { useSession } from 'next-auth/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { ReviewPost } from '@/api/reviewAPI';
+import { ReviewCommentPost } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 
 interface CommentTextArea {
   comment: string;
 }
-const CommentForm = () => {
+const ReviewCommentForm = () => {
   const { data: session } = useSession();
   const isSession = session && session.user;
   const {
@@ -21,11 +21,10 @@ const CommentForm = () => {
     const newData = {
       id: Math.ceil(Math.random() * 100000),
       createDate: '2023-10-09T00:11:58',
-      userId: session?.user?.name as string,
+      reviewerId: session?.user?.name as string,
       content: data.comment,
-      comments: [],
     };
-    await ReviewPost(newData);
+    await ReviewCommentPost(newData);
     console.log(newData);
     if (!isSession) return alert('로그인을 해주세요');
   };
@@ -44,4 +43,4 @@ const CommentForm = () => {
     </form>
   );
 };
-export default CommentForm;
+export default ReviewCommentForm;
