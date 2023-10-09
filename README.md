@@ -29,11 +29,47 @@
 <h2>시현 영상 🎥</h2>
 
 <div align="left">
-1. 메인 화면 및 슬라이드 기능 <br/>
+
+1. 메인 화면 및 슬라이드 기능 
 
 https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/d58377bd-08c6-4de3-aa80-58dbb7bc4e68
 
-</div><h2>팀원 👭</h2>
+2. 로그인 기능 <br/>
+
+https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/5c68e77d-f3d4-426b-bd96-01666530cda9
+
+3. 행사 모아보기 페이지네이션 + select + 상세페이지
+
+https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/2add94b7-7dcf-44fa-9633-d084b64e4797
+
+
+https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/acc95f62-4efc-4cbb-9823-3b312934f95a
+
+
+4. 블로그 조회 
+
+https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/9bf5eaa8-59ce-480b-9a11-f6b90e0f3806
+
+
+5. 댓글 유효성 검사 및 추가
+
+  - 로그인 시
+
+https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/ae3509ee-f27e-47bc-8982-a4d8495044b0
+
+
+  - 로그인 시 
+
+https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/aaae2d9c-685e-4c80-9298-8b9911779b38
+
+
+6. 댓글 삭제
+
+https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/f59e6e8f-6c80-4b4d-b114-189a70e01ad0
+
+
+</div>
+<h2>팀원 👭</h2>
 
 |                                                               Front end                                                               |                                                                  Front end                                                                  |
 | :-----------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
