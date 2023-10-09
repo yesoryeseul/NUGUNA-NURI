@@ -14,6 +14,12 @@
 <h2>🕛 개발 기간</h2>
 23.10.01 ~ 23.10.07
 
+<h2>문서화 📝</h2>
+
+[Notion](https://lyrical-brain-e0f.notion.site/85c59f2fa0a64a828df609adfa5b7697?pvs=4)
+
+[Figma](https://www.figma.com/file/xVxsIZnolqwpXeh04g5Eyx/toy-project?type=design&node-id=0-1&mode=design&t=fDoCSOS7zLl6d24g-0)
+
 <h2>주요 기능 🔨</h2>
 
 <div align="left">
@@ -75,12 +81,6 @@ https://github.com/mobi-community/mobi-nuguna-nuri/assets/111338578/f59e6e8f-6c8
 | :-----------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
 | <img src="https://github.com/FrontEnd-Team3/movie-trailer-project/assets/123865139/a6e966c2-bf34-4ece-91c6-6efeb5ac681b" width="150"> | <img src="https://github.com/KIT-Frontend-Team1/pair1-Git-Issue-Project/assets/123865139/f7bb64fc-2d77-4bd0-9825-5823f73d5977" width="150"> |
 |                                                  [박희수](https://github.com/Sueddd)                                                  |                                                  [김예슬](https://github.com/yesoryeseul)                                                   |
-
-<h2>문서화 📝</h2>
-
-[Notion](https://lyrical-brain-e0f.notion.site/85c59f2fa0a64a828df609adfa5b7697?pvs=4)
-
-[Figma](https://www.figma.com/file/xVxsIZnolqwpXeh04g5Eyx/toy-project?type=design&node-id=0-1&mode=design&t=fDoCSOS7zLl6d24g-0)
 
 <h2 align='center'>프로젝트 기술스택 💡</h2>
 
