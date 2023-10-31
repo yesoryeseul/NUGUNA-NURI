@@ -1,12 +1,12 @@
-export interface ReviewType {
+export interface IReview {
   id: number;
   createDate: string;
   userId: string;
   content: string;
-  comments: ReviewCommentType[];
+  comments: IReviewComment[];
 }
 
-export interface ReviewCommentType {
+export interface IReviewComment {
   id: number;
   createDate: string;
   reviewerId: string;

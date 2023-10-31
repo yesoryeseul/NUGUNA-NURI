@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ButtonProps {
+interface IButtonProps {
   variant?: 'more' | 'register' | 'cancel';
   shape?: 'square' | 'primary' | 'full';
   size?: 'small' | 'medium' | 'large';
@@ -9,7 +9,7 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<IButtonProps> = ({
   variant = 'more',
   shape = 'square',
   size = 'medium',

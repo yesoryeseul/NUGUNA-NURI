@@ -4,27 +4,27 @@ import { useEffect } from 'react';
 
 import CollectAPI from '@/api/collectAPI';
 import Pagination from '@/components/Pagination/Pagination';
-import { selectValueAtom } from '@/types/collect/atom';
+import { selectValueAtom } from '@/store/collect.atom';
 
 import OneItem from './_components/OneItem';
 import FilterSelect from './_components/Select';
 import SkeletonLoader from './_components/SkeletonLoader';
 
-export interface CulturalEventRow {
+export interface ICulturalEventRow {
   MAIN_IMG: string;
   ORG_NAME: string;
   TITLE: string;
   CODENAME: string;
 }
 
-export interface CulturalEventInfo {
+export interface ICulturalEventInfo {
   list_total_count: number;
   culturalEventInfo: {
-    row: CulturalEventRow[];
+    row: ICulturalEventRow[];
   };
 }
 
-const dataAtom = atom<CulturalEventInfo | null>(null);
+const dataAtom = atom<ICulturalEventInfo | null>(null);
 const currentPageAtom = atom(1);
 const totalCountAtom = atom(0);
 const itemsPerPageAtom = atom(12);

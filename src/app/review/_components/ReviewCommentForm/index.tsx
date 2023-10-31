@@ -6,7 +6,7 @@ import { ReviewCommentPost } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 
-interface CommentTextArea {
+interface ICommentTextArea {
   comment: string;
 }
 const ReviewCommentForm = () => {
@@ -16,8 +16,8 @@ const ReviewCommentForm = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<CommentTextArea>();
-  const onSubmit: SubmitHandler<CommentTextArea> = async (data) => {
+  } = useForm<ICommentTextArea>();
+  const onSubmit: SubmitHandler<ICommentTextArea> = async (data) => {
     const newData = {
       id: Math.ceil(Math.random() * 100000),
       createDate: '2023-10-09T00:11:58',

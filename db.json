@@ -66,6 +66,47 @@
           "content": "ㅇㅇ"
         }
       ]
+    },
+    {
+      "id": 1894,
+      "createDate": "2023-10-09T00:11:58",
+      "content": "제발....",
+      "comments": []
+    },
+    {
+      "id": 89936,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "수정은 .. 내일 할까요..? ",
+      "comments": []
+    },
+    {
+      "id": 21862,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "하하 ^^ ! ",
+      "comments": []
+    },
+    {
+      "id": 40317,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "저는 근데 아직도 cva가 뭔지.. 뇌출혈 나온 뒤로 안봤거든요..? ",
+      "comments": []
+    },
+    {
+      "id": 43979,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "아 뇌졸중이네요 ",
+      "comments": []
+    },
+    {
+      "id": 25259,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "히수",
+      "content": "네네 좋아요 ",
+      "comments": []
     }
   ]
 }

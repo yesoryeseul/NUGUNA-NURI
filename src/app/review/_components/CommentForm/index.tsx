@@ -1,15 +1,19 @@
 'use client';
+import { useAtom } from 'jotai';
 import { useSession } from 'next-auth/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { ReviewPost } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
+import { reviewPostAtom } from '@/store/reviewPost.atom';
+import { IReview } from '@/types';
 
 interface CommentTextArea {
   comment: string;
 }
 const CommentForm = () => {
+  const [reviewPost, setReviewPost] = useAtom(reviewPostAtom);
   const { data: session } = useSession();
   const isSession = session && session.user;
   const {
@@ -25,10 +29,13 @@ const CommentForm = () => {
       content: data.comment,
       comments: [],
     };
-    await ReviewPost(newData);
-    console.log(newData);
+    const returnData = await ReviewPost(newData);
+    if (returnData && 'id' in returnData) { 
+      setReviewPost((prev) => [...prev, returnData] as IReview[]); // 타입 단언을 사용하여 반환 타입을 IReview[]로 지정
+    }
     if (!isSession) return alert('로그인을 해주세요');
   };
+
   // isSession이 없으면 등록하기 버튼 클릭시 post못하고 alert 메세지(로그인을 해주세요)
   // isSession 일때만 등록 후 db에 post
   return (

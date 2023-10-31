@@ -5,7 +5,7 @@ import SwiperCore from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { BannerImage } from '@/consts/image';
+import { BannerImage } from '@/consts';
 
 export default function MainBanner() {
   SwiperCore.use([Navigation, Scrollbar]);

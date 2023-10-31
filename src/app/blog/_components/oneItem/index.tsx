@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { BlogTypes } from '@/types/blog/types';
+import { BlogTypes } from '@/types/blog.types';
 
 // 단일 prop이 아니기 때문에 {post} 객체 형식으로 보내주기.
 const OneItem = ({ post }: { post: BlogTypes }) => {

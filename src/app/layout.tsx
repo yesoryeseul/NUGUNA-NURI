@@ -3,9 +3,9 @@ import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import Footer from '@/components/footer/footer';
-import { Header } from '@/components/header/header';
-import Providers from '@/components/Providers/Providers';
+import { Footer, Header } from '@/components';
+
+import AuthSessionProvider from '../providers/AuthSessionProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className={inter.className}>
         <div className='h-screen'>
-          <Providers>
+          <AuthSessionProvider>
             <Header />
             {children}
-          </Providers>
+          </AuthSessionProvider>
           <Footer />
         </div>
       </body>

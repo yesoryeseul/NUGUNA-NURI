@@ -15,7 +15,7 @@ import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import mainApi from '@/api/mainApi';
-import { ApiType } from '@/types/main/types';
+import { IApiType } from '@/types';
 
 export default function RecmmendSlide() {
   // swiper 사용
@@ -23,14 +23,13 @@ export default function RecmmendSlide() {
   const swiperRef = useRef<SwiperCore>();
 
   // 추천 프로그램 이미지
-  const [recommendImg, setReccomendImg] = useState<ApiType[]>([]);
+  const [recommendImg, setReccomendImg] = useState<IApiType[]>([]);
   useEffect(() => {
-    const fetchData = async () => {
-      const api: ApiType[] = await mainApi(1, 50);
-      const filterData = api.filter((v: ApiType) => v.IS_FREE[0] == '무료');
-      setReccomendImg(filterData);
-    };
-    fetchData();
+    (async () => {
+      const fetchApi: IApiType[] = await mainApi(1, 50);
+      const recommendData = fetchApi.filter((apis: IApiType) => apis.IS_FREE[0] == '무료');
+      setReccomendImg(recommendData);
+    })();
   }, []);
 
   return (
@@ -62,7 +61,7 @@ export default function RecmmendSlide() {
           spaceBetween={20}
           slidesPerView={6}
         >
-          {recommendImg?.map((image: ApiType) => (
+          {recommendImg?.map((image: IApiType) => (
             <SwiperSlide key={image.CODENAME[0]}>
               <Image
                 src={image.MAIN_IMG[0]}
