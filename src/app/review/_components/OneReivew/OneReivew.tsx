@@ -4,16 +4,15 @@ import { useSession } from 'next-auth/react';
 
 import { ReviewDelete } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
-import { reviewPostAtom } from '@/store/reviewPost.atom';
+import { reviewPostAtom } from '@/store';
 import { IReview } from '@/types';
 import FormatCreateDate from '@/utils/FormatCreateDate';
 
-import OneReviewComment from '../OneReviewComment';
-import ReviewCommentForm from '../ReviewCommentForm';
+import { OneReviewComment, ReviewCommentForm } from '..';
 
 const reviewCommentsAtom = atom<{ [key: number]: boolean }>({});
 
-const OneReivew = ({ item }: { item: IReview }) => {
+export const OneReivew = ({ item }: { item: IReview }) => {
   const setReviewPost = useSetAtom(reviewPostAtom);
   const [reviewCommentsState, setReviewCommentsState] = useAtom(reviewCommentsAtom);
   const { id, userId, createDate, content, comments } = item;
@@ -75,5 +74,3 @@ const OneReivew = ({ item }: { item: IReview }) => {
     </div>
   );
 };
-
-export default OneReivew;

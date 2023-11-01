@@ -1,19 +1,19 @@
 'use client';
-import { useAtom } from 'jotai';
+import { useSetAtom } from 'jotai';
 import { useSession } from 'next-auth/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { ReviewPost } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { reviewPostAtom } from '@/store/reviewPost.atom';
-import { IReview } from '@/types';
+import { reviewPostAtom } from '@/store';
+import type { IReview } from '@/types';
 
 interface CommentTextArea {
   comment: string;
 }
-const CommentForm = () => {
-  const [reviewPost, setReviewPost] = useAtom(reviewPostAtom);
+export const CommentForm = () => {
+  const setReviewPost = useSetAtom(reviewPostAtom);
   const { data: session } = useSession();
   const isSession = session && session.user;
   const {
@@ -30,7 +30,7 @@ const CommentForm = () => {
       comments: [],
     };
     const returnData = await ReviewPost(newData);
-    if (returnData && 'id' in returnData) { 
+    if (returnData && 'id' in returnData) {
       setReviewPost((prev) => [...prev, returnData] as IReview[]); // 타입 단언을 사용하여 반환 타입을 IReview[]로 지정
     }
     if (!isSession) return alert('로그인을 해주세요');
@@ -51,4 +51,3 @@ const CommentForm = () => {
     </form>
   );
 };
-export default CommentForm;

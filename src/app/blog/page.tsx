@@ -1,6 +1,6 @@
 import { getSortedPostsData } from '@/api/blogApi';
 
-import OneItem from './_components/oneItem';
+import OneBlogItem from './_components/OneBlogItem/OneBlogItem';
 
 const BlogPage = () => {
   const posts = getSortedPostsData();
@@ -9,7 +9,7 @@ const BlogPage = () => {
       <div className='flex justify-center items-center '>
         <div className='w-6/12'>
           {posts.map((post) => (
-            <OneItem key={post.id} post={post} />
+            <OneBlogItem key={post.id} post={post} />
           ))}
         </div>
       </div>

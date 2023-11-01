@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton';
 
-const SkeletonLoader = () => {
+export const SkeletonLoader = () => {
   const array = Array.from({ length: 12 }, (_, index) => index + 1);
   return (
     <div className='w-full grid grid-cols-3 gap-4'>
@@ -16,5 +16,3 @@ const SkeletonLoader = () => {
     </div>
   );
 };
-
-export default SkeletonLoader;

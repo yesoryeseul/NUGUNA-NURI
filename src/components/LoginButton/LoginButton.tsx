@@ -15,7 +15,7 @@ const LoginButton = () => {
     );
   }
 
-  return <Button onClick={() => signIn()}>로그인</Button>;
+  return <Button onClick={() => signIn('google')}>로그인</Button>;
 };
 
 export default LoginButton;

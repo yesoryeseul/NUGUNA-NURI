@@ -4,27 +4,12 @@ import { useEffect } from 'react';
 
 import CollectAPI from '@/api/collectAPI';
 import Pagination from '@/components/Pagination/Pagination';
-import { selectValueAtom } from '@/store/collect.atom';
+import { selectValueAtom } from '@/store';
+import type { ICulturalEventInfoProps } from '@/types';
 
-import OneItem from './_components/OneItem';
-import FilterSelect from './_components/Select';
-import SkeletonLoader from './_components/SkeletonLoader';
+import { FilterSelect, OneCollectItem, SkeletonLoader } from './_components';
 
-export interface ICulturalEventRow {
-  MAIN_IMG: string;
-  ORG_NAME: string;
-  TITLE: string;
-  CODENAME: string;
-}
-
-export interface ICulturalEventInfo {
-  list_total_count: number;
-  culturalEventInfo: {
-    row: ICulturalEventRow[];
-  };
-}
-
-const dataAtom = atom<ICulturalEventInfo | null>(null);
+const dataAtom = atom<ICulturalEventInfoProps | null>(null);
 const currentPageAtom = atom(1);
 const totalCountAtom = atom(0);
 const itemsPerPageAtom = atom(12);
@@ -79,7 +64,7 @@ const Collect = () => {
         <div className='grid grid-cols-3 gap-4'>
           {data?.culturalEventInfo?.row.slice(startIndex, endIndex + 1).map((item, idx) => (
             <div key={idx} className='p-4'>
-              <OneItem item={item} idx={startIndex + idx} selectedValue={selectedValue} />{' '}
+              <OneCollectItem item={item} idx={startIndex + idx} selectedValue={selectedValue} />{' '}
             </div>
           ))}
         </div>

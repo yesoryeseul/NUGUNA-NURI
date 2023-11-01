@@ -93,26 +93,22 @@ const Pagination: React.FC<IPageProps> = (props) => {
         >
           <FontAwesomeIcon icon={faAngleLeft} />
         </button>
-        {Array(totalPages)
-          .fill(0)
-          .map((_, i) => {
-            const pageNum = i + 1;
-            if (pageNum >= firstPageGroup && pageNum <= lastPageGroup) {
-              return (
-                <li key={i} className='mx-1'>
-                  <button
-                    className={`px-2 ${shapeVariant} ${colorCSS} ${
-                      page === pageNum ? bgActive : `bg-transparent ${noneActive}`
-                    }`}
-                    onClick={() => handlePageChange(pageNum)}
-                  >
-                    {pageNum}
-                  </button>
-                </li>
-              );
-            }
-            return null; // 페이지 그룹 밖의 페이지는 null을 반환하여 렌더링하지 않음
-          })}
+        {/* 페이지 그룹에 해당하는 페이지 번호만 생성 */}
+        {Array.from(
+          { length: lastPageGroup - firstPageGroup + 1 },
+          (_, i) => i + firstPageGroup,
+        ).map((pageNum) => (
+          <li key={pageNum} className='mx-1'>
+            <button
+              className={`px-2 ${shapeVariant} ${colorCSS} ${
+                page === pageNum ? bgActive : `bg-transparent ${noneActive}`
+              }`}
+              onClick={() => handlePageChange(pageNum)}
+            >
+              {pageNum}
+            </button>
+          </li>
+        ))}
         <button
           onClick={() => handlePageChange(page + 1)}
           disabled={page === totalPages}

@@ -1,10 +1,10 @@
 import { useSession } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
-import { ReviewCommentType } from '@/types/review/types';
+import { IReviewComment } from '@/types';
 import FormatCreateDate from '@/utils/FormatCreateDate';
 
-const OneReviewComment = ({ comment }: { comment: ReviewCommentType }) => {
+export const OneReviewComment = ({ comment }: { comment: IReviewComment }) => {
   const { id, createDate, reviewerId, content } = comment;
   const maskingUserId = reviewerId.replace(/.{3}$/, '***');
   const formattedDate = FormatCreateDate(createDate);
@@ -34,5 +34,3 @@ const OneReviewComment = ({ comment }: { comment: ReviewCommentType }) => {
     </div>
   );
 };
-
-export default OneReviewComment;

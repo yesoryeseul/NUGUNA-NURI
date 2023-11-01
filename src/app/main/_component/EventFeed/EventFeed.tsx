@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import mainApi from '@/api/mainApi';
 import Button from '@/components/Button/Button';
-import { ApiType } from '@/types/main.types';
+import type { IApiType } from '@/types';
 
-const EventFeed = async () => {
+export const EventFeed = async () => {
   const fetchData = await mainApi(1, 3);
   const url = `/collect`;
   return (
@@ -22,10 +22,16 @@ const EventFeed = async () => {
           </div>
         </div>
         <div className='flex justify-center items-center'>
-          {fetchData.map((v: ApiType) => (
+          {fetchData.map((mainData: IApiType) => (
             <>
               <div className='w-full justify-between ml-4 px-3'>
-                <Image src={v.MAIN_IMG[0]} alt={v.TITLE[0]} width={430} height={300} priority />
+                <Image
+                  src={mainData.MAIN_IMG[0]}
+                  alt={mainData.TITLE[0]}
+                  width={430}
+                  height={300}
+                  priority
+                />
               </div>
             </>
           ))}
@@ -34,5 +40,3 @@ const EventFeed = async () => {
     </>
   );
 };
-
-export default EventFeed;

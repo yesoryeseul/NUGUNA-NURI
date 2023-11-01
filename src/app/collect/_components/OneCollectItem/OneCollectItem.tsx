@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { CulturalEventRow } from '../../page';
+import type { ICulturalEventRow } from '@/types';
 
-const OneItem = ({
+export const OneCollectItem = ({
   item,
   idx,
   selectedValue,
 }: {
-  item: CulturalEventRow;
+  item: ICulturalEventRow;
   idx: number;
   selectedValue: string;
 }) => {
@@ -31,5 +31,3 @@ const OneItem = ({
     </Link>
   );
 };
-
-export default OneItem;

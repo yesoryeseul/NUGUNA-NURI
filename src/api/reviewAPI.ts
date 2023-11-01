@@ -1,4 +1,4 @@
-import { IReview, IReviewComment } from '@/types';
+import type { IReview, IReviewComment } from '@/types';
 
 export const ReviewApi = async (): Promise<IReview[] | undefined> => {
   const url = 'http://localhost:3001/reviews';

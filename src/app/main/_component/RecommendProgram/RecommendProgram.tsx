@@ -15,9 +15,9 @@ import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import mainApi from '@/api/mainApi';
-import { IApiType } from '@/types';
+import type { IApiType } from '@/types';
 
-export default function RecmmendSlide() {
+export const RecmmendSlide = () => {
   // swiper 사용
   SwiperCore.use([Navigation, Scrollbar]);
   const swiperRef = useRef<SwiperCore>();
@@ -76,4 +76,4 @@ export default function RecmmendSlide() {
       </div>
     </>
   );
-}
+};

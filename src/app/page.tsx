@@ -1,12 +1,9 @@
-import MainBlog from './main/_component/Blog';
-import EventFeed from './main/_component/EventFeed';
-import MainBanner from './main/_component/MainbannerSlide';
-import RecmmendSlide from './main/_component/RecommendProgram';
+import { EventFeed, MainbannerSlide, MainBlog, RecmmendSlide } from './main/_component';
 
 export default function Home() {
   return (
     <div className='flex-col align-center'>
-      <MainBanner />
+      <MainbannerSlide />
       <div className='text-center my-24	'>
         <h2 className='scroll-m-20  pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
           &quot;누구나 누리&quot;

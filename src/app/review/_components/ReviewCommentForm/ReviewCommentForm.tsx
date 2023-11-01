@@ -9,7 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 interface ICommentTextArea {
   comment: string;
 }
-const ReviewCommentForm = () => {
+export const ReviewCommentForm = () => {
   const { data: session } = useSession();
   const isSession = session && session.user;
   const {
@@ -43,4 +43,3 @@ const ReviewCommentForm = () => {
     </form>
   );
 };
-export default ReviewCommentForm;

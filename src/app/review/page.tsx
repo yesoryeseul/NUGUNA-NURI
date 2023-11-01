@@ -3,19 +3,18 @@ import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 
 import { ReviewApi } from '@/api/reviewAPI';
-import { reviewPostAtom } from '@/store/reviewPost.atom';
-import { IReview } from '@/types';
+import { reviewPostAtom } from '@/store';
+import type { IReview } from '@/types';
 
-import CommentForm from './_components/CommentForm';
-import OneReivew from './_components/OneReivew';
+import { CommentForm, OneReivew } from './_components';
 
 const Review = () => {
   const [reviewPost, setReviewPost] = useAtom(reviewPostAtom);
 
-  //네ㅔ네 뭘쓰셨던 거에요?? 제가 쓸게요
   useEffect(() => {
     ReviewApi().then((data) => setReviewPost(data as IReview[]));
   }, []);
+
   return (
     <div className='flex flex-col items-center max-w-xl m-auto'>
       <h1 className='text-2xl font-bold my-16'>후기 남기기</h1>

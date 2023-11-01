@@ -8,12 +8,10 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { FilterOptions } from '@/consts';
-import { selectValueAtom } from '@/store/collect.atom';
-interface IFilterSelectProps {
-  onValueChange: (value: string) => void;
-}
+import { selectValueAtom } from '@/store';
+import type { IFilterSelectProps } from '@/types';
 
-const FilterSelect: React.FC<IFilterSelectProps> = ({ onValueChange }) => {
+export const FilterSelect: React.FC<IFilterSelectProps> = ({ onValueChange }) => {
   const [selectedValue, setSelectedValue] = useAtom(selectValueAtom);
   const handleSelectChange = (value: string) => {
     setSelectedValue(value); // 선택한 값을 업데이트
@@ -38,4 +36,3 @@ const FilterSelect: React.FC<IFilterSelectProps> = ({ onValueChange }) => {
     </div>
   );
 };
-export default FilterSelect;

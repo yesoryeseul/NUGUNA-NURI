@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { getSortedPostsData } from '@/api/blogApi';
 import Button from '@/components/Button/Button';
 
-import OneItem from './oneItem';
+import { OneItem } from './OneItem/OneItem';
 
-const MainBlog = () => {
+export const MainBlog = () => {
   const posts = getSortedPostsData();
   const url = `/blog`;
   return (
@@ -32,5 +32,3 @@ const MainBlog = () => {
     </>
   );
 };
-
-export default MainBlog;
