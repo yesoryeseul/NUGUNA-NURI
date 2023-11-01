@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-import { IBlog } from '@/types';
+import type { IBlog } from '@/types';
 
 const postsDirectory = path.join('__blog');
 
