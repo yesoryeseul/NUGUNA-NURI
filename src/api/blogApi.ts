@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-import { BlogTypes } from '@/types/blog.types';
+import { IBlog } from '@/types';
 
 const postsDirectory = path.join('__blog');
 
@@ -17,7 +17,7 @@ export function getSortedPostsData() {
 
     const matterResult = matter(fileContents);
 
-    const blogPost: BlogTypes = {
+    const blogPost: IBlog = {
       id,
       title: matterResult.data.title,
       date: matterResult.data.date,

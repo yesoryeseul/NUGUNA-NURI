@@ -15,5 +15,5 @@ export const FilterOptions = [
   { value: '축제-자연_경관', label: '축제-자연/경관' },
   { value: '축제-전통_역사', label: '축제-전통/역사' },
   { value: '축제-기타', label: '축제-기타' },
-  { value: '기타', label: '기타' }
-]
+  { value: '기타', label: '기타' },
+];
