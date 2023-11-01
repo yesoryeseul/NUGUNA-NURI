@@ -1,6 +1,6 @@
-import { ReviewCommentType, ReviewType } from '@/types/review/types';
+import { IReview, IReviewComment } from '@/types';
 
-export const ReviewApi = async () => {
+export const ReviewApi = async (): Promise<IReview[] | undefined> => {
   const url = 'http://localhost:3001/reviews';
   try {
     const res = await fetch(url, {
@@ -8,14 +8,14 @@ export const ReviewApi = async () => {
       headers: { 'Content-Type': 'application/json' },
       cache: 'no-store',
     });
-    const data = res.json();
+    const data: IReview[] = await res.json();
     return data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const ReviewPost = async (newData: ReviewType) => {
+export const ReviewPost = async (newData: IReview): Promise<IReview[] | undefined> => {
   const url = 'http://localhost:3001/reviews';
   try {
     const res = await fetch(url, {
@@ -31,7 +31,9 @@ export const ReviewPost = async (newData: ReviewType) => {
   }
 };
 
-export const ReviewCommentPost = async (newData: ReviewCommentType) => {
+export const ReviewCommentPost = async (
+  newData: IReviewComment,
+): Promise<IReviewComment[] | undefined> => {
   const url = 'http://localhost:3001/reviews';
   try {
     const res = await fetch(url, {
@@ -47,7 +49,7 @@ export const ReviewCommentPost = async (newData: ReviewCommentType) => {
   }
 };
 
-export const ReviewDelete = async (id: number) => {
+export const ReviewDelete = async (id: number): Promise<IReviewComment[] | undefined> => {
   const url = `http://localhost:3001/reviews/${id}`;
   try {
     const res = await fetch(url, {
@@ -62,7 +64,10 @@ export const ReviewDelete = async (id: number) => {
   }
 };
 
-export const ReviewPatch = async (id: number, editData: string) => {
+export const ReviewPatch = async (
+  id: number,
+  editData: string,
+): Promise<IReviewComment[] | undefined> => {
   const url = `http://localhost:3001/reviews/${id}`;
   try {
     const res = await fetch(url, {

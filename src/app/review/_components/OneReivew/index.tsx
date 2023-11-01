@@ -1,10 +1,11 @@
 'use client';
-import { atom, useAtom } from 'jotai';
+import { atom, useAtom, useSetAtom } from 'jotai';
 import { useSession } from 'next-auth/react';
 
 import { ReviewDelete } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
-import { ReviewType } from '@/types/review/types';
+import { reviewPostAtom } from '@/store/reviewPost.atom';
+import { IReview } from '@/types';
 import FormatCreateDate from '@/utils/FormatCreateDate';
 
 import OneReviewComment from '../OneReviewComment';
@@ -12,7 +13,8 @@ import ReviewCommentForm from '../ReviewCommentForm';
 
 const reviewCommentsAtom = atom<{ [key: number]: boolean }>({});
 
-const OneReivew = ({ item }: { item: ReviewType }) => {
+const OneReivew = ({ item }: { item: IReview }) => {
+  const setReviewPost = useSetAtom(reviewPostAtom);
   const [reviewCommentsState, setReviewCommentsState] = useAtom(reviewCommentsAtom);
   const { id, userId, createDate, content, comments } = item;
   const maskingUserId = userId?.replace(/.{3}$/, '***');
@@ -32,6 +34,7 @@ const OneReivew = ({ item }: { item: ReviewType }) => {
   const onDeleteReview = async (id: number) => {
     if (isSession) {
       await ReviewDelete(id);
+      setReviewPost((review) => review.filter((review) => review.id !== id));
     }
   };
 

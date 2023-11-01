@@ -1,19 +1,28 @@
+'use client';
+import { useAtom } from 'jotai';
+import { useEffect } from 'react';
+
 import { ReviewApi } from '@/api/reviewAPI';
-import { ReviewType } from '@/types/review/types';
+import { reviewPostAtom } from '@/store/reviewPost.atom';
+import { IReview } from '@/types';
 
 import CommentForm from './_components/CommentForm';
 import OneReivew from './_components/OneReivew';
 
-const Review = async () => {
-  const data: ReviewType[] = await ReviewApi();
+const Review = () => {
+  const [reviewPost, setReviewPost] = useAtom(reviewPostAtom);
 
+  //네ㅔ네 뭘쓰셨던 거에요?? 제가 쓸게요
+  useEffect(() => {
+    ReviewApi().then((data) => setReviewPost(data as IReview[]));
+  }, []);
   return (
     <div className='flex flex-col items-center max-w-xl m-auto'>
       <h1 className='text-2xl font-bold my-16'>후기 남기기</h1>
       <CommentForm />
-      {data?.map((item) => (
-        <div className='w-full' key={item.id}>
-          <OneReivew item={item} key={item.id} />
+      {reviewPost?.map((review) => (
+        <div className='w-full' key={review.id}>
+          <OneReivew item={review} key={review.id} />
         </div>
       ))}
     </div>

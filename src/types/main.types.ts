@@ -1,4 +1,4 @@
-export interface ApiType {
+export interface IApiType {
   CODENAME: string[];
   GUNAME: string[];
   TITLE: string[];
@@ -23,17 +23,17 @@ export interface ApiType {
   HMPG_ADDR: string[];
 }
 
-export interface ResultObject {
+export interface IResultObject {
   CODE: string;
   MESSAGE: string;
 }
 
-export interface CulturalEventInfo {
+export interface ICulturalEventInfo {
   list_total_count: string[];
-  RESULT: ResultObject[];
-  row: ApiType[];
+  RESULT: IResultObject[];
+  row: IApiType[];
 }
 
-export interface ApiRes {
-  culturalEventInfo: CulturalEventInfo;
+export interface IApiRes {
+  culturalEventInfo: ICulturalEventInfo;
 }

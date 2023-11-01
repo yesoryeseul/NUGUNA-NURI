@@ -1,3 +1,4 @@
+'use client';
 import {
   faAngleLeft,
   faAngleRight,
@@ -7,7 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { atom, useAtom } from 'jotai';
 
-interface PageProps {
+interface IPageProps {
   total_count: number;
   list: number;
   itemPerPage: number;
@@ -21,7 +22,7 @@ interface PageProps {
 const currentPage = 1;
 const pageAtom = atom(currentPage);
 
-const Pagination: React.FC<PageProps> = (props) => {
+const Pagination: React.FC<IPageProps> = (props) => {
   const {
     total_count,
     list,

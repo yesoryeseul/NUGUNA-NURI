@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import mainApi from '@/api/mainApi';
 import Button from '@/components/Button/Button';
-import { ApiType } from '@/types/main/types';
+import { ApiType } from '@/types/main.types';
 
 const EventFeed = async () => {
   const fetchData = await mainApi(1, 3);
