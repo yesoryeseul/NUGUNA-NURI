@@ -6,9 +6,6 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-    // './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    // './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    // './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
@@ -19,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        roboto: ['var(--roboto)'], // className="font-roboto" 로 사용 가능
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { getSortedPostsData } from '@/api/blogApi';
-import Button from '@/components/Button/Button';
+import { CustomButton } from '@/components';
 
 import { OneItem } from './OneItem/OneItem';
 
@@ -15,9 +15,9 @@ export const MainBlog = () => {
           <div className='font-semibold	mt-4 ml-8'>블로그</div>
           <div className='ml-6'>
             <Link href={url}>
-              <Button variant='more' shape='primary' size='large' weight='semibold'>
+              <CustomButton variant='more' shape='primary' size='large' weight='semibold'>
                 more &gt;
-              </Button>
+              </CustomButton>
             </Link>
           </div>
         </div>
