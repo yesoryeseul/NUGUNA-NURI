@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import mainApi from '@/api/mainApi';
-import Button from '@/components/Button/Button';
+import { CustomButton } from '@/components';
 import type { IApiType } from '@/types';
 
 export const EventFeed = async () => {
@@ -15,9 +15,9 @@ export const EventFeed = async () => {
           <div className='font-semibold	mt-4 ml-8'>행사 피드</div>
           <div className='ml-6'>
             <Link href={url}>
-              <Button variant='more' shape='primary' size='large' weight='semibold'>
+              <CustomButton variant='more' shape='primary' size='large' weight='semibold'>
                 more &gt;
-              </Button>
+              </CustomButton>
             </Link>
           </div>
         </div>

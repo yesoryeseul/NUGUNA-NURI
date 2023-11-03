@@ -1,13 +1,21 @@
 import '../styles/globals.css';
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 
 import { Footer, Header } from '@/components';
 
 import AuthSessionProvider from '../providers/AuthSessionProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+const notoSansKr = Noto_Sans_KR({
+  // preload: true, 기본값
+  preload: false,
+  weight: ['400', '500', '600', '700'],
+});
+
+export const cls = (...classnames: string[]) => {
+  return classnames.join(' ');
+};
 
 export const metadata: Metadata = {
   title: '누구나누리',
@@ -17,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={notoSansKr.className}>
         <div className='h-screen'>
           <AuthSessionProvider>
             <Header />

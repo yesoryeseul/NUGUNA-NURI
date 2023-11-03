@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Button from './Button';
+import { CustomButton } from './CustomButton';
 
 const meta = {
   title: 'Component/Button',
-  component: Button,
+  component: CustomButton,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
@@ -26,7 +27,7 @@ const meta = {
       control: { type: 'select' },
     },
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof CustomButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

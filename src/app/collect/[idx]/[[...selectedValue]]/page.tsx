@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import CollectAPI from '@/api/collectAPI';
-import Button from '@/components/Button/Button';
+import { CustomButton } from '@/components';
 
 const CollectDetail = async ({ params }: { params: { idx: number; selectedValue: string } }) => {
   // 전체 카테고리에 대한 예외 처리
@@ -38,13 +38,13 @@ const CollectDetail = async ({ params }: { params: { idx: number; selectedValue:
           <div className='flex mb-12 justify-between'>
             <p className='text-2xl text-gray-900 font-bold w-2/3'>{TITLE}</p>
             <div>
-              <Button variant='register' shape='square' size='medium' weight='bold'>
+              <CustomButton variant='register' shape='square' size='medium' weight='bold'>
                 관심공연
-              </Button>
+              </CustomButton>
               <Link href={ORG_LINK} className='ml-4'>
-                <Button variant='register' shape='square' size='medium' weight='bold'>
+                <CustomButton variant='cancel' shape='square' size='medium' weight='bold'>
                   홈페이지
-                </Button>
+                </CustomButton>
               </Link>
             </div>
           </div>

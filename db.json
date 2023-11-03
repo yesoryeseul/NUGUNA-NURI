@@ -107,6 +107,13 @@
       "userId": "히수",
       "content": "네네 좋아요 ",
       "comments": []
+    },
+    {
+      "id": 47795,
+      "createDate": "2023-10-09T00:11:58",
+      "userId": "kim yeseul",
+      "content": "테스트 댓글!",
+      "comments": []
     }
   ]
 }
