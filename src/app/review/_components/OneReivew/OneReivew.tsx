@@ -1,9 +1,11 @@
 'use client';
 import { atom, useAtom, useSetAtom } from 'jotai';
 import { useSession } from 'next-auth/react';
+import { useState } from 'react';
 
-import { ReviewDelete } from '@/api/reviewAPI';
+import { ReviewDelete, ReviewPatch } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
 import { reviewPostAtom } from '@/store';
 import { IReview } from '@/types';
 import FormatCreateDate from '@/utils/FormatCreateDate';
@@ -19,6 +21,26 @@ export const OneReivew = ({ item }: { item: IReview }) => {
   const maskingUserId = userId?.replace(/.{3}$/, '***');
   const formattedDate = FormatCreateDate(createDate);
   const { data: session } = useSession();
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [editContent, setEditContent] = useState(content);
+
+  const onEditReview = async () => {
+    if (isEditMode) {
+      const updateContent = await ReviewPatch(id, editContent);
+      setReviewPost((reviews) =>
+        reviews.map((review) =>
+          review.id === id
+            ? { ...review, content: updateContent ? updateContent.content : review.content }
+            : review,
+        ),
+      );
+    }
+    setIsEditMode((prev: boolean) => !prev);
+  };
+
+  const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setEditContent(e.target.value);
+  };
 
   // 답글 여닫기
   const onIsOpenCommentForm = () => {
@@ -50,13 +72,19 @@ export const OneReivew = ({ item }: { item: IReview }) => {
               <Button onClick={() => onDeleteReview(id)} variant='outline'>
                 삭제
               </Button>
-              <Button className='ml-4'>수정</Button>
+              <Button className='ml-4' onClick={onEditReview}>
+                {isEditMode ? '저장' : '수정'}
+              </Button>
             </div>
           )}
         </div>
-        <div>
-          <p className='mb-5'>{content}</p>
-        </div>
+        {isEditMode ? (
+          <Textarea value={editContent} onChange={onChangeContent} />
+        ) : (
+          <div>
+            <p className='mb-5'>{content}</p>
+          </div>
+        )}
       </div>
       <div>
         <p onClick={onIsOpenCommentForm} className='cursor-pointer hover:underline text-gray-700'>

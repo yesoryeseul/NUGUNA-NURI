@@ -94,6 +94,7 @@ const Pagination: React.FC<IPageProps> = (props) => {
           <FontAwesomeIcon icon={faAngleLeft} />
         </button>
         {/* 페이지 그룹에 해당하는 페이지 번호만 생성 */}
+
         {Array.from(
           { length: lastPageGroup - firstPageGroup + 1 },
           (_, i) => i + firstPageGroup,
