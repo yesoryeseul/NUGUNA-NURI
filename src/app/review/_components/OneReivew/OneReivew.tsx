@@ -26,6 +26,7 @@ export const OneReivew = ({ item }: { item: IReview }) => {
 
   const onEditReview = async () => {
     if (isEditMode) {
+      // 업데이트 된 객체를 내보내준다.
       const updateContent = await ReviewPatch(id, editContent);
       setReviewPost((reviews) =>
         reviews.map((review) =>
