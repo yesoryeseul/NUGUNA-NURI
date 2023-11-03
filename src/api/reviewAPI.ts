@@ -64,16 +64,13 @@ export const ReviewDelete = async (id: number): Promise<IReviewComment[] | undef
   }
 };
 
-export const ReviewPatch = async (
-  id: number,
-  editData: string,
-): Promise<IReviewComment[] | undefined> => {
+export const ReviewPatch = async (id: number, editData: string): Promise<IReview | undefined> => {
   const url = `http://localhost:3001/reviews/${id}`;
   try {
     const res = await fetch(url, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(editData),
+      body: JSON.stringify({ content: editData }),
       cache: 'no-store',
     });
     const data = res.json();
