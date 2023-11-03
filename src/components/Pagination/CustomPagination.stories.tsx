@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Pagination from './Pagination';
+import { CustomPagination } from './CustomPagination';
+// import Pagination from './Pagination';
 
 const meta = {
   title: 'Component/Pagination',
-  component: Pagination,
+  component: CustomPagination,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
@@ -17,11 +19,7 @@ const meta = {
       options: ['square', 'primary', 'full'],
       control: { type: 'select' },
     },
-    arrow: {
-      options: ['gray', 'blue', 'pink'],
-      control: { type: 'select' },
-    },
-    primaryButton: {
+    color: {
       options: ['gray', 'blue', 'pink'],
       control: { type: 'select' },
     },
@@ -46,7 +44,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Pagination>;
+} satisfies Meta<typeof CustomPagination>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -55,8 +53,29 @@ export const Primary: Story = {
   args: {
     bgColor: 'gray',
     shape: 'square',
-    arrow: 'gray',
-    primaryButton: 'gray',
+    color: 'gray',
+    total_count: 300,
+    list: 12,
+    itemPerPage: 10,
+  },
+};
+
+export const Pink: Story = {
+  args: {
+    bgColor: 'pink',
+    shape: 'primary',
+    color: 'pink',
+    total_count: 300,
+    list: 12,
+    itemPerPage: 10,
+  },
+};
+
+export const Blue: Story = {
+  args: {
+    bgColor: 'blue',
+    shape: 'full',
+    color: 'blue',
     total_count: 300,
     list: 12,
     itemPerPage: 10,

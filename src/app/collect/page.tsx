@@ -3,7 +3,7 @@ import { atom, useAtom, useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 
 import CollectAPI from '@/api/collectAPI';
-import Pagination from '@/components/Pagination/Pagination';
+import { CustomPagination } from '@/components/Pagination/CustomPagination';
 import { selectValueAtom } from '@/store';
 import type { ICulturalEventInfoProps } from '@/types';
 
@@ -72,7 +72,7 @@ const Collect = () => {
         <SkeletonLoader />
       )}
       <div className='my-12'>
-        <Pagination
+        <CustomPagination
           total_count={totalCount}
           list={itemsPerPage}
           itemPerPage={10}
