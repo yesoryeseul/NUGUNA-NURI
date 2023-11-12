@@ -6,8 +6,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/culturalEventInfo/:start/:end',
-        destination: `http://openapi.seoul.go.kr:8088/${process.env.NEXT_PUBLIC_API_KEY}/json/culturalEventInfo/:start/:end`,
+        source: '/api/culturalEventInfo/:type/:start/:end',
+        destination: `http://openapi.seoul.go.kr:8088/${process.env.NEXT_PUBLIC_API_KEY}/:type/culturalEventInfo/:start/:end`,
       },
     ];
   },

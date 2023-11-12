@@ -5,10 +5,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { BsFillArrowRightSquareFill } from 'react-icons/bs';
-import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
 import { LiaGripLinesVerticalSolid } from 'react-icons/lia';
 import SwiperCore from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
@@ -43,11 +43,11 @@ export const RecmmendSlide = () => {
           </div>
           <div className='border border-slate-500 flex items-center justify-center mt-16	'>
             <button className='prev-btn mt-3.5 mr-9 mb-3.5'>
-              <BsFillArrowLeftSquareFill size={30} />
+              <FontAwesomeIcon icon={faArrowLeft} size='lg' />
             </button>
             <LiaGripLinesVerticalSolid size={30} />
             <button className='next-btn mt-3.5 ml-9 mb-3.5'>
-              <BsFillArrowRightSquareFill size={30} />
+              <FontAwesomeIcon icon={faArrowRight} size='lg' />
             </button>
           </div>
         </div>
