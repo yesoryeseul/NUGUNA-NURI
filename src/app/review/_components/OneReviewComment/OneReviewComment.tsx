@@ -5,7 +5,8 @@ import { IReviewComment } from '@/types';
 import FormatCreateDate from '@/utils/FormatCreateDate';
 
 export const OneReviewComment = ({ comment }: { comment: IReviewComment }) => {
-  const { id, createDate, reviewerId, content } = comment;
+  // const { id, createDate, reviewerId, content } = comment; 추후 id 사용 예정
+  const { createDate, reviewerId, content } = comment;
   const maskingUserId = reviewerId.replace(/.{3}$/, '***');
   const formattedDate = FormatCreateDate(createDate);
   const { data: session } = useSession();

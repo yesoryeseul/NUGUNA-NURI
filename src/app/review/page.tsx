@@ -13,7 +13,7 @@ const Review = () => {
 
   useEffect(() => {
     ReviewApi().then((data) => setReviewPost(data as IReview[]));
-  }, []);
+  }, [setReviewPost]);
 
   return (
     <div className='flex flex-col items-center max-w-xl m-auto'>
