@@ -7,9 +7,9 @@ import 'swiper/css/scrollbar';
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { BsFillArrowRightSquareFill } from 'react-icons/BS';
-import { BsFillArrowLeftSquareFill } from 'react-icons/BS';
-import { LiaGripLinesVerticalSolid } from 'react-icons/Lia';
+import { BsFillArrowRightSquareFill } from 'react-icons/bs';
+import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
+import { LiaGripLinesVerticalSolid } from 'react-icons/lia';
 import SwiperCore from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
