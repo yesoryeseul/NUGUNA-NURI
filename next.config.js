@@ -14,5 +14,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-
-// ${baseURL}/${apiKey}/json/culturalEventInfo/${startIndex}/${endIndex}/

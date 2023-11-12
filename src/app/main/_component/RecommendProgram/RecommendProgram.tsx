@@ -24,12 +24,23 @@ export const RecmmendSlide = () => {
 
   // 추천 프로그램 이미지
   const [recommendImg, setReccomendImg] = useState<IApiType[]>([]);
+  const isMounted = useRef(false);
+
   useEffect(() => {
+    isMounted.current = true;
+
     (async () => {
       const fetchApi: IApiType[] = await mainApi(1, 50);
       const recommendData = fetchApi.filter((apis: IApiType) => apis.IS_FREE[0] == '무료');
-      setReccomendImg(recommendData);
+
+      if (isMounted.current) {
+        setReccomendImg(recommendData);
+      }
     })();
+
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   return (
