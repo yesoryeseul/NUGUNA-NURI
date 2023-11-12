@@ -8,7 +8,7 @@ export const ReviewApi = async (): Promise<IReview[] | undefined> => {
     return;
   }
   try {
-    const res = await fetch(serverURL, {
+    const res = await fetch(`${serverURL}/reviews`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       cache: 'no-store',
@@ -26,7 +26,7 @@ export const ReviewPost = async (newData: IReview): Promise<IReview[] | undefine
     return;
   }
   try {
-    const res = await fetch(serverURL, {
+    const res = await fetch(`${serverURL}/reviews`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newData),
@@ -47,7 +47,7 @@ export const ReviewCommentPost = async (
     return;
   }
   try {
-    const res = await fetch(serverURL, {
+    const res = await fetch(`${serverURL}/reviews`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newData),
@@ -66,7 +66,7 @@ export const ReviewDelete = async (id: number): Promise<IReviewComment[] | undef
     return;
   }
   try {
-    const res = await fetch(`${serverURL}/${id}`, {
+    const res = await fetch(`${serverURL}/reviews/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       cache: 'no-store',
@@ -84,7 +84,7 @@ export const ReviewPatch = async (id: number, editData: string): Promise<IReview
     return;
   }
   try {
-    const res = await fetch(`${serverURL}/${id}`, {
+    const res = await fetch(`${serverURL}/reviews/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ content: editData }),
