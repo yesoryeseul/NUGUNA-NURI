@@ -1,9 +1,14 @@
 import type { IReview, IReviewComment } from '@/types';
 
+const serverURL = process.env.NEXT_PUBLIC_SERVER_URL;
+
 export const ReviewApi = async (): Promise<IReview[] | undefined> => {
-  const url = 'http://localhost:3001/reviews';
+  if (!serverURL) {
+    console.log('서버 세팅 에러!');
+    return;
+  }
   try {
-    const res = await fetch(url, {
+    const res = await fetch(serverURL, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       cache: 'no-store',
@@ -16,9 +21,12 @@ export const ReviewApi = async (): Promise<IReview[] | undefined> => {
 };
 
 export const ReviewPost = async (newData: IReview): Promise<IReview[] | undefined> => {
-  const url = 'http://localhost:3001/reviews';
+  if (!serverURL) {
+    console.log('서버 세팅 에러!');
+    return;
+  }
   try {
-    const res = await fetch(url, {
+    const res = await fetch(serverURL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newData),
@@ -34,9 +42,12 @@ export const ReviewPost = async (newData: IReview): Promise<IReview[] | undefine
 export const ReviewCommentPost = async (
   newData: IReviewComment,
 ): Promise<IReviewComment[] | undefined> => {
-  const url = 'http://localhost:3001/reviews';
+  if (!serverURL) {
+    console.log('서버 세팅 에러!');
+    return;
+  }
   try {
-    const res = await fetch(url, {
+    const res = await fetch(serverURL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newData),
@@ -50,9 +61,12 @@ export const ReviewCommentPost = async (
 };
 
 export const ReviewDelete = async (id: number): Promise<IReviewComment[] | undefined> => {
-  const url = `http://localhost:3001/reviews/${id}`;
+  if (!serverURL) {
+    console.log('서버 세팅 에러!');
+    return;
+  }
   try {
-    const res = await fetch(url, {
+    const res = await fetch(`${serverURL}/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       cache: 'no-store',
@@ -65,9 +79,12 @@ export const ReviewDelete = async (id: number): Promise<IReviewComment[] | undef
 };
 
 export const ReviewPatch = async (id: number, editData: string): Promise<IReview | undefined> => {
-  const url = `http://localhost:3001/reviews/${id}`;
+  if (!serverURL) {
+    console.log('서버 세팅 에러!');
+    return;
+  }
   try {
-    const res = await fetch(url, {
+    const res = await fetch(`${serverURL}/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ content: editData }),
