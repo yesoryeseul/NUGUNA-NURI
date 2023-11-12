@@ -6,7 +6,8 @@ const CollectAPI = async (
   try {
     const baseURL = process.env.NEXT_PUBLIC_URL;
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-    let apiUrl = `${baseURL}/${apiKey}/json/culturalEventInfo/${startIndex}/${endIndex}/`;
+    // let apiUrl = `${baseURL}/${apiKey}/json/culturalEventInfo/${startIndex}/${endIndex}/`;
+    let apiUrl = `/api/culturalEventInfo/${startIndex}/${endIndex}/`;
 
     if (codename) {
       apiUrl += `${codename.replace(/_/g, '/')}`;
