@@ -14,22 +14,29 @@ import SwiperCore from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import mainApi from '@/api/mainApi';
-import type { IApiType } from '@/types';
+import CollectAPI from '@/api/collectAPI';
+import type { ICulturalEventRow } from '@/types';
 
 export const RecmmendSlide = () => {
   // swiper 사용
   SwiperCore.use([Navigation, Scrollbar]);
   const swiperRef = useRef<SwiperCore>();
 
-  // 추천 프로그램 이미지
-  const [recommendImg, setReccomendImg] = useState<IApiType[]>([]);
+  const [recommendImg, setRecomendImg] = useState<ICulturalEventRow[]>([]);
+
   useEffect(() => {
-    (async () => {
-      const fetchApi: IApiType[] = await mainApi(1, 10);
-      setReccomendImg(fetchApi);
-    })();
-  }, []);
+    CollectAPI(1, 50)
+      .then((dataString) => {
+        const parsedData = JSON.parse(dataString);
+        const recommendData = parsedData?.culturalEventInfo?.row?.filter(
+          (apis: ICulturalEventRow) => apis.IS_FREE === '무료',
+        );
+        setRecomendImg(recommendData); // 무료 데이터만 저장
+      })
+      .catch((error) => {
+        console.error('에러 발생', error);
+      });
+  }, [setRecomendImg]);
 
   return (
     <>
@@ -50,7 +57,6 @@ export const RecmmendSlide = () => {
             </button>
           </div>
         </div>
-
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           navigation={{
@@ -60,15 +66,9 @@ export const RecmmendSlide = () => {
           spaceBetween={20}
           slidesPerView={6}
         >
-          {recommendImg?.map((image: IApiType) => (
-            <SwiperSlide key={image.CODENAME[0]}>
-              <Image
-                src={image.MAIN_IMG[0]}
-                alt={image.TITLE[0]}
-                width={400}
-                height={700}
-                priority
-              />
+          {recommendImg?.map((image) => (
+            <SwiperSlide key={image.CODENAME}>
+              <Image src={image.MAIN_IMG} alt={image.TITLE} width={400} height={700} priority />
             </SwiperSlide>
           ))}
         </Swiper>

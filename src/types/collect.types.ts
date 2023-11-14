@@ -7,6 +7,7 @@ export interface ICulturalEventRow {
   ORG_NAME: string;
   TITLE: string;
   CODENAME: string;
+  IS_FREE: string;
 }
 
 export interface ICulturalEventInfoProps {
