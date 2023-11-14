@@ -5,10 +5,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { BsFillArrowRightSquareFill } from 'react-icons/bs';
+import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
 import { LiaGripLinesVerticalSolid } from 'react-icons/lia';
 import SwiperCore from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
@@ -24,28 +24,16 @@ export const RecmmendSlide = () => {
 
   // 추천 프로그램 이미지
   const [recommendImg, setReccomendImg] = useState<IApiType[]>([]);
-  const isMounted = useRef(false);
-
   useEffect(() => {
-    isMounted.current = true;
-
     (async () => {
-      const fetchApi: IApiType[] = await mainApi(1, 50);
-      const recommendData = fetchApi.filter((apis: IApiType) => apis.IS_FREE[0] == '무료');
-
-      if (isMounted.current) {
-        setReccomendImg(recommendData);
-      }
+      const fetchApi: IApiType[] = await mainApi(1, 10);
+      setReccomendImg(fetchApi);
     })();
-
-    return () => {
-      isMounted.current = false;
-    };
   }, []);
 
   return (
     <>
-      <div className='flex m-0 w-auto px-2.5	'>
+      <div className='flex m-0 w-auto px-2.5'>
         <div className=' m-0 w-1/4 ml-2'>
           <div className='text-xs my-8'>Recommend Program</div>
           <div className='my-4 text-2xl font-semibold'>추천 프로그램</div>
@@ -54,11 +42,11 @@ export const RecmmendSlide = () => {
           </div>
           <div className='border border-slate-500 flex items-center justify-center mt-16	'>
             <button className='prev-btn mt-3.5 mr-9 mb-3.5'>
-              <FontAwesomeIcon icon={faArrowLeft} size='lg' />
+              <BsFillArrowLeftSquareFill size={30} />
             </button>
             <LiaGripLinesVerticalSolid size={30} />
             <button className='next-btn mt-3.5 ml-9 mb-3.5'>
-              <FontAwesomeIcon icon={faArrowRight} size='lg' />
+              <BsFillArrowRightSquareFill size={30} />
             </button>
           </div>
         </div>
